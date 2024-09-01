@@ -1,0 +1,27 @@
+{
+  "name": "kwadramat-api-dev",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/kwadramat-api-dev/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "kwadramat-api-dev:build",
+        "runBuildTargetDependencies": false,
+        "watch": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "kwadramat-api-dev:build:development"
+        },
+        "production": {
+          "buildTarget": "kwadramat-api-dev:build:production"
+        }
+      }
+    }
+  }
+}

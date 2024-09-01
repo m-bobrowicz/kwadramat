@@ -1,0 +1,11 @@
+<div
+  class="w-20 p-3 h-screen bg-indigo-600 shadow-lg shadow-zinc-600 flex flex-col justify-start items-center"
+>
+  <img src="/assets/logo_grayscale.svg" class="w-10 h-10 object-contain" />
+
+  <ng-content select="[top]"></ng-content>
+
+  <div class="h-screen flex-shrink min-h-0"></div>
+
+  <ng-content select="[bottom]"></ng-content>
+</div>

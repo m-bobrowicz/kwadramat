@@ -1,0 +1,5 @@
+<sc-indeterminate-progress-bar
+  elementClass="block absolute top-0 left-0 w-full overflow-hidden"
+  [class.hidden]="isNotLoading$ | async"
+></sc-indeterminate-progress-bar>
+<router-outlet></router-outlet>

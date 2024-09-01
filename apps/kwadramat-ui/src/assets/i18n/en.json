@@ -1,0 +1,5 @@
+{
+  "PAGINATOR": {
+    "PAGE_STATE": "{{ pageStart }} - {{ pageEnd }} of {{ totalSize }}"
+  }
+}

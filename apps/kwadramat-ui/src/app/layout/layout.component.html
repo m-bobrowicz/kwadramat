@@ -1,0 +1,20 @@
+<div class="flex justify-start items-start">
+  <app-layout-sidebar>
+    <ng-container top>
+      <button [cdkMenuTriggerFor]="menu" class="flex items-center mt-5">
+        <i-feather name="user" class="!w-8 !h-8"></i-feather>
+      </button>
+      <ng-template #menu>
+        <div scMenu cdkMenu>
+          <a [routerLink]="['/app/change-password']" cdkMenuItem scMenuItem>
+            Change Password
+          </a>
+          <button (click)="signOut()" cdkMenuItem scMenuItem>Sign Out</button>
+        </div>
+      </ng-template>
+    </ng-container>
+  </app-layout-sidebar>
+  <div class="h-screen w-full overflow-auto text-left">
+    <router-outlet></router-outlet>
+  </div>
+</div>

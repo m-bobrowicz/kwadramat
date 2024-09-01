@@ -1,0 +1,45 @@
+{
+  "name": "kwadramat-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/kwadramat-api/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "kwadramat-api:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "kwadramat-api:build:development"
+        },
+        "production": {
+          "buildTarget": "kwadramat-api:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/kwadramat-api/jest.config.ts"
+      }
+    },
+    "start-dev-db": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker compose -f ./apps/kwadramat-api/docker-compose.yml up -d"
+      }
+    },
+    "seed-dev-db": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nest start --debug -p apps/kwadramat-api/tsconfig.app.json --sourceRoot apps/kwadramat-api/src/dev --entryFile apps/kwadramat-api/src/dev/init-database"
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+.nx/
+.vscode/
+node_modules/
+.angular
+dist/
+config/

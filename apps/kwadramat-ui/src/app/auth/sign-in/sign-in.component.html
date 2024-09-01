@@ -1,0 +1,49 @@
+<div
+  class="w-screen h-screen p-10 flex flex-wrap gap-20 justify-center items-center"
+>
+  <form [formGroup]="formGroup" (submit)="submit()">
+    <div
+      class="border-2 border-zinc-600 rounded shadow-lg shadow-zinc-700 p-8 grid grid-flow-row justify-start items-start gap-8"
+    >
+      <label class="grid grid-flow-row gap-2">
+        Username
+        <input
+          type="text"
+          scInput
+          formControlName="username"
+          scFormErrorBorder
+        />
+
+        <div [scFormErrorMessage]="formGroup.get('username')">
+          Field is required.
+        </div>
+      </label>
+      <label class="grid grid-flow-row gap-2">
+        Password
+        <input
+          type="password"
+          scInput
+          formControlName="password"
+          scFormErrorBorder
+        />
+        <div [scFormErrorMessage]="formGroup.get('password')">
+          Field is required.
+        </div>
+      </label>
+      <div class="flex justify-end items-center">
+        <button type="submit" scButtonPrimary class="self-end">sign in</button>
+      </div>
+      <div
+        [scFormErrorMessage]="formGroup"
+        scFormErrorMessageCheckFor="wrongCredentials"
+      >
+        Wrong credentials.
+      </div>
+    </div>
+  </form>
+
+  <img
+    src="/assets/logo.svg"
+    class="flex-shrink min-w-0 max-w-sm object-contain"
+  />
+</div>
